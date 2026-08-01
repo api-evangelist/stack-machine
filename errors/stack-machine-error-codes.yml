@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: derived
+source: graphql/stack-machine-schema.graphql
+format: graphql-errors
+envelope:
+  description: StackMachine is a GraphQL API. Errors are returned in the top-level
+    errors[] array of the JSON response, each with a message, a path, and an
+    extensions object; data may be partially populated.
+  fields:
+  - errors[].message
+  - errors[].path
+  - errors[].locations
+  - errors[].extensions.code
+error_classes:
+- code: UNAUTHENTICATED
+  meaning: Missing, invalid, or revoked API key / access token.
+  remediation: Export a valid STACKMACHINE_API_KEY from the dashboard, or rotate the
+    key via rotateApiKey.
+- code: FORBIDDEN
+  meaning: The authenticated principal lacks the role/permission for the operation
+    (checked via viewerCan / viewerHasRole in the schema).
+  remediation: Use a key on a namespace/app with sufficient collaborator role.
+- code: NOT_FOUND
+  meaning: The referenced Node (app, domain, package, DNS record, etc.) does not
+    exist or is not visible to the caller.
+  remediation: Verify the global ID / name; refetch via node(id) or a get* query.
+- code: BAD_USER_INPUT
+  meaning: Validation failure on mutation input arguments.
+  remediation: Correct the offending input fields and retry.
+notes: Codes are the conventional GraphQL error extension classes implied by the
+  schema's auth (viewerCan/viewerHasRole), Node lookups, and mutation input types.
+  StackMachine does not publish a numbered API error registry.

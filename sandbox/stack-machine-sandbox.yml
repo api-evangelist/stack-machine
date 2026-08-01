@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.stackmachine.com/getting-started/installation
+summary: StackMachine documents a demo key for local experimentation, distinct from
+  a production key exported from the dashboard.
+modes:
+- name: demo
+  description: A demo key used for local experiments without a dashboard account,
+    supplied via the STACKMACHINE_API_KEY environment variable.
+  key_env: STACKMACHINE_API_KEY
+- name: live
+  description: A production key exported from the StackMachine dashboard.
+  key_source: https://dashboard.stackmachine.com/
+notes: The published docs do not enumerate specific test resource identifiers or
+  fixture values; no test values are invented here.

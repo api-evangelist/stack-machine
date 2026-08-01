@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/stackmachine/sdks/releases
+scope: official SDK releases (release-please); StackMachine does not publish a dated
+  API-level changelog page.
+scheme: semver-per-package
+packages:
+  javascript: stackmachine
+  python: stackmachine (python)
+current:
+  javascript: 0.5.0
+  python: 0.6.0
+entries:
+- package: python
+  version: 0.6.0
+  date: '2026-07-21'
+- package: javascript
+  version: 0.5.0
+  date: '2026-07-21'
+- package: python
+  version: 0.5.0
+  date: '2026-07-02'
+- package: javascript
+  version: 0.4.0
+  date: '2026-07-02'
+- package: python
+  version: 0.4.0
+  date: '2026-06-08'
+- package: javascript
+  version: 0.3.0
+  date: '2026-06-08'
+- package: python
+  version: 0.3.3
+  date: '2026-06-01'
+- package: javascript
+  version: 0.2.2
+  date: '2026-06-01'
+- package: javascript
+  version: 0.2.1
+  date: '2026-05-30'
+- package: javascript
+  version: 0.2.0
+  date: '2026-05-30'

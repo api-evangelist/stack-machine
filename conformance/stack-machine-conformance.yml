@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: graphql/stack-machine-schema.graphql
+standards:
+- id: graphql
+  conforms: true
+  evidence: Published GraphQL schema served at https://api.stackmachine.com/graphql
+    (types Query, Mutation, Subscription).
+- id: relay-graphql-server-spec
+  conforms: true
+  evidence: Node interface + global IDs (node/nodes queries), Connection/edge/pageInfo
+    cursor pagination, and clientMutationId on mutation inputs/payloads.
+- id: graphql-subscriptions
+  conforms: true
+  evidence: Subscription type exposes real-time streams (streamLogs, logAdded,
+    autobuildDeployment, packageVersionReady, runEdgeJob, generateScreenshot).
+- id: idempotency
+  conforms: true
+  evidence: SDK request options carry idempotency_key; Relay clientMutationId across
+    mutations. See conventions/stack-machine-conventions.yml.
+- id: oauth2
+  conforms: false
+  evidence: Programmatic access is API-key based; no OAuth2 authorization server
+    or scopes are documented.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: GraphQL error envelope (errors[]) is used instead of RFC 9457 HTTP
+    problem+json.
+notes: Derived from the published GraphQL schema; StackMachine does not publish a
+  named compliance/certification program (no Compliance pointer emitted).

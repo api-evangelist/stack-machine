@@ -1,0 +1,33 @@
+# StackMachine
+
+> Elastic, headless infrastructure for AI applications and agents. StackMachine runs existing Node.js, Python, and PHP codebases as WebAssembly with sub-5ms cold starts and sandboxed execution for untrusted or AI-generated code. A single GraphQL API and official JavaScript and Python SDKs drive app deployment, custom domains and DNS, managed databases and volumes, cron jobs, secrets, transactional email, cloud storage, package publishing, SSH access, and usage metering. Backed by a16z.
+
+## API
+
+- [GraphQL API endpoint](https://api.stackmachine.com/graphql): Single GraphQL endpoint, API-key authenticated (STACKMACHINE_API_KEY). Relay-style schema (Node global IDs, cursor connections), with queries, mutations, and real-time subscriptions.
+- [GraphQL schema](graphql/stack-machine-schema.graphql): Full published schema captured in this repo.
+
+## SDKs
+
+- [JavaScript / TypeScript SDK](https://www.npmjs.com/package/stackmachine): `npm install stackmachine`
+- [Python SDK](https://pypi.org/project/stackmachine/): `uv add stackmachine`
+- [SDK source (GitHub)](https://github.com/stackmachine/sdks)
+
+## Docs
+
+- [Documentation](https://docs.stackmachine.com/)
+- [Getting Started / Installation](https://docs.stackmachine.com/getting-started/installation)
+- [Client setup](https://docs.stackmachine.com/getting-started/client)
+- [Pricing](https://stackmachine.com/pricing)
+
+## Enrichment artifacts
+
+- [Authentication profile](authentication/stack-machine-authentication.yml)
+- [API conventions (idempotency, pagination, errors)](conventions/stack-machine-conventions.yml)
+- [Error envelope and classes](errors/stack-machine-error-codes.yml)
+- [Data model / entity graph](data-model/stack-machine-data-model.yml)
+- [Lifecycle and deprecation](lifecycle/stack-machine-lifecycle.yml)
+- [Changelog (SDK releases)](changelog/stack-machine-changelog.yml)
+- [Packages / SDKs](packages/stack-machine-packages.yml)
+- [Candidate MCP tool surface](mcp/stack-machine-mcp.yml)
+- [Agent skills](skills/_index.yml)

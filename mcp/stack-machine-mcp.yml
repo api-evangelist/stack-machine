@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: graphql/stack-machine-schema.graphql
+notes: No official hosted MCP server was located for StackMachine. This is a CANDIDATE
+  tool surface derived from the public GraphQL operations, to seed an MCP server.
+server:
+  name: stack-machine
+  transport: http
+  url: null
+  auth: api-key (STACKMACHINE_API_KEY)
+tools:
+- name: list_apps
+  description: List the caller's deployed apps.
+  source_operation: graphql/stack-machine-schema.graphql#getDeployApps
+- name: get_app
+  description: Get a deployed app by id or name.
+  source_operation: graphql/stack-machine-schema.graphql#getDeployApp
+- name: deploy_via_autobuild
+  description: Deploy an app from a connected repo via autobuild.
+  source_operation: graphql/stack-machine-schema.graphql#deployViaAutobuild
+- name: publish_deploy_app
+  description: Publish a new version of a deployed app.
+  source_operation: graphql/stack-machine-schema.graphql#publishDeployApp
+- name: redeploy_active_version
+  description: Redeploy the currently active app version.
+  source_operation: graphql/stack-machine-schema.graphql#redeployActiveAppVersion
+- name: delete_app
+  description: Delete a deployed app.
+  source_operation: graphql/stack-machine-schema.graphql#deleteApp
+- name: upsert_app_domain
+  description: Attach or update a custom domain on an app.
+  source_operation: graphql/stack-machine-schema.graphql#upsertAppDomain
+- name: list_domains
+  description: List managed DNS domains.
+  source_operation: graphql/stack-machine-schema.graphql#getAllDomains
+- name: upsert_dns_record
+  description: Create or update a DNS record.
+  source_operation: graphql/stack-machine-schema.graphql#upsertDNSRecord
+- name: upsert_app_secret
+  description: Set an app secret / environment variable.
+  source_operation: graphql/stack-machine-schema.graphql#upsertAppSecret
+- name: create_cron_job
+  description: Create a scheduled cron job for an app.
+  source_operation: graphql/stack-machine-schema.graphql#createCronJob
+- name: send_app_email
+  description: Send transactional email from an app.
+  source_operation: graphql/stack-machine-schema.graphql#sendAppEmail
+- name: get_app_logs
+  description: Read application logs.
+  source_operation: graphql/stack-machine-schema.graphql#logs
+- name: current_usage
+  description: Read current usage/metering for the account.
+  source_operation: graphql/stack-machine-schema.graphql#currentUsage

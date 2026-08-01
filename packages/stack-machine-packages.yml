@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/stackmachine/sdks
+packages:
+- language: javascript
+  registry: npm
+  name: stackmachine
+  url: https://www.npmjs.com/package/stackmachine
+  install: npm install stackmachine
+  version: 0.5.0
+  repository: https://github.com/stackmachine/sdks/tree/main/js
+  official: true
+- language: python
+  registry: pypi
+  name: stackmachine
+  url: https://pypi.org/project/stackmachine/
+  install: uv add stackmachine
+  version: 0.6.0
+  repository: https://github.com/stackmachine/sdks/tree/main/python
+  official: true

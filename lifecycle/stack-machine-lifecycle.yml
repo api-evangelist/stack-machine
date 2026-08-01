@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: derived
+source: graphql/stack-machine-schema.graphql
+versioning:
+  scheme: versionless-graphql
+  current: unversioned
+  endpoint: https://api.stackmachine.com/graphql
+  description: A single unversioned GraphQL endpoint. The API evolves additively and
+    marks retiring fields with the GraphQL @deprecated directive rather than issuing
+    URI or header versions.
+deprecation:
+  mechanism: graphql-@deprecated-directive
+  deprecated_field_count: 57
+  policy_url: null
+  sunset_header: false
+  examples:
+  - field: paymentMethods
+    reason: Use `payment_connection` instead
+  - field: payments
+    reason: Use `payment_connection` instead
+  - field: deployedApps
+    reason: This field is not used anymore
+  - field: completionTimeInSeconds
+    reason: This field is deprecated and return null always.
+  - field: repo
+    reason: This field is deprecated and return null always.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+notes: No standalone deprecation-policy page, SLA, or public status page was located
+  at probe time; deprecation intent is expressed inline in the GraphQL schema.

@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.stackmachine.com/getting-started/installation
+docs: https://docs.stackmachine.com/getting-started/client
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  transport: GraphQL over HTTPS (POST https://api.stackmachine.com/graphql)
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  description: A StackMachine API key exported from the dashboard (or a demo key for
+    local experiments), supplied to the SDK via the STACKMACHINE_API_KEY environment
+    variable and sent by the client transport on every GraphQL request.
+  env_var: STACKMACHINE_API_KEY
+  key_management:
+    dashboard: https://dashboard.stackmachine.com/
+    graphql_mutations:
+    - generateApiToken
+    - rotateApiKey
+    - updateApiKey
+    - createNamespaceApiKey
+    - deleteNamespaceApiKey
+    - revokeApiToken
+notes: The GraphQL schema also exposes token-based session flows (tokenAuth, socialAuth,
+  refreshAccessToken, verifyAccessToken, revokeAccessToken) used by the dashboard;
+  programmatic SDK access is via the API key above.

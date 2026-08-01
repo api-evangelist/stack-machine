@@ -1,7 +1,12 @@
 aid: stack-machine
 name: Stack Machine
-description: Stack Machine is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: StackMachine is elastic, headless infrastructure for AI applications and agents.
+  It runs existing Node.js, Python, and PHP codebases as WebAssembly with sub-5ms cold starts
+  and sandboxed execution for untrusted or AI-generated code, packing thousands of apps per
+  server. The platform is driven by a single GraphQL API (api.stackmachine.com/graphql) plus
+  official JavaScript and Python SDKs, exposing app deployment, custom domains and DNS, managed
+  databases and volumes, cron jobs, secrets, transactional email, cloud storage, package
+  publishing, SSH access, and usage metering. Backed by a16z.
 url: https://raw.githubusercontent.com/api-evangelist/stack-machine/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +14,114 @@ x-backed-by:
 - a16z
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.stackmachine.com/opengraph-image.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Infrastructure
+- Serverless
+- WebAssembly
+- Edge Compute
+- AI Applications
+- GraphQL
+- Platform as a Service
+- Deployment
+- Hosting
+- DNS
+- Databases
+apis:
+- name: StackMachine GraphQL API
+  description: Single GraphQL endpoint for deploying and managing StackMachine apps, custom
+    domains and DNS, managed databases and volumes, cron jobs, secrets, transactional email,
+    cloud storage, package publishing, SSH access, and usage metering. Relay-style schema
+    (Node global IDs, cursor connections) with API-key authentication.
+  humanURL: https://docs.stackmachine.com/
+  baseURL: https://api.stackmachine.com/graphql
+  tags:
+  - GraphQL
+  - Deployment
+  - Infrastructure
+  properties:
+  - type: GraphQL
+    url: graphql/stack-machine-schema.graphql
+  - type: Documentation
+    url: https://docs.stackmachine.com/
+  - type: APIReference
+    url: https://docs.stackmachine.com/
+common:
+- type: DomainSecurity
+  url: security/stack-machine-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.stackmachine.com/
+- type: Documentation
+  url: https://docs.stackmachine.com/
+- type: APIReference
+  url: https://docs.stackmachine.com/
+- type: GettingStarted
+  url: https://docs.stackmachine.com/getting-started/installation
+- type: GitHubOrganization
+  url: https://github.com/stackmachine
+- type: Support
+  url: https://github.com/stackmachine/sdks/issues
+- type: Pricing
+  url: https://stackmachine.com/pricing
+- type: SignUp
+  url: https://dashboard.stackmachine.com/signup
+- type: Login
+  url: https://dashboard.stackmachine.com/signin
+- type: TermsOfService
+  url: https://stackmachine.com/terms
+- type: PrivacyPolicy
+  url: https://stackmachine.com/privacy
+- type: GraphQL
+  url: graphql/stack-machine-schema.graphql
+- type: Packages
+  url: packages/stack-machine-packages.yml
+- type: SDKs
+  url: packages/stack-machine-packages.yml
+- type: Authentication
+  url: authentication/stack-machine-authentication.yml
+- type: Conventions
+  url: conventions/stack-machine-conventions.yml
+- type: Idempotency
+  url: conventions/stack-machine-conventions.yml
+- type: ErrorCatalog
+  url: errors/stack-machine-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/stack-machine-lifecycle.yml
+- type: ChangeLog
+  url: changelog/stack-machine-changelog.yml
+- type: DataModel
+  url: data-model/stack-machine-data-model.yml
+- type: Conformance
+  url: conformance/stack-machine-conformance.yml
+- type: MCPServer
+  url: mcp/stack-machine-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/stack-machine-llms.txt
+- type: Sandbox
+  url: sandbox/stack-machine-sandbox.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

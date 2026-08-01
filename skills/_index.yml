@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: generated
+source: graphql/stack-machine-schema.graphql
+skills:
+- file: stack-machine-deploy-app.md
+  name: Deploy and publish an app
+  api: graphql/stack-machine-schema.graphql
+  operations: [deployViaAutobuild, autobuildDeploymentStatus, publishDeployApp, getDeployApp]
+- file: stack-machine-custom-domain.md
+  name: Attach and verify a custom domain
+  api: graphql/stack-machine-schema.graphql
+  operations: [upsertAppDomain, verifyAppDomain, getAllDomains, deleteAppDomain]
+- file: stack-machine-dns.md
+  name: Manage DNS records
+  api: graphql/stack-machine-schema.graphql
+  operations: [getAllDomains, upsertDNSRecord, getAllDNSRecords, deleteDNSRecord]
+- file: stack-machine-secrets.md
+  name: Manage app secrets and env vars
+  api: graphql/stack-machine-schema.graphql
+  operations: [upsertAppSecret, getAppSecrets, deleteAppSecret]

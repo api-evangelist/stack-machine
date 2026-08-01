@@ -1,0 +1,82 @@
+generated: '2026-07-21'
+method: derived
+source: graphql/stack-machine-schema.graphql
+notes: Entity graph derived from the GraphQL schema's Node types and Relay Connection
+  fields. Objects implement Node and are addressable by opaque global IDs.
+entities:
+- name: DeployApp
+  description: A deployed application (the core StackMachine unit).
+  relationships:
+  - has_many: DeployAppVersion
+  - has_many: AppAlias
+  - has_many: AppVolume
+  - has_many: AppDatabase
+  - has_many: AppDomain
+  - has_many: CronJob
+  - has_many: AppSecret
+  - has_one: AppSshServer
+  - belongs_to: Namespace
+- name: DeployAppVersion
+  description: An immutable version/build of an app.
+  relationships:
+  - belongs_to: DeployApp
+  - has_many: AppVersionVolume
+- name: AppAlias
+  description: A hostname alias routing to an app.
+  relationships:
+  - belongs_to: DeployApp
+- name: AppDomain
+  description: A custom domain attached to an app.
+  relationships:
+  - belongs_to: DeployApp
+  - has_many: DNSRecord
+- name: DNSRecord
+  description: A DNS record within a managed domain zone.
+  relationships:
+  - belongs_to: Domain
+- name: Domain
+  description: A managed / registered DNS domain.
+  relationships:
+  - has_many: DNSRecord
+- name: AppDatabase
+  description: A managed database linked to an app.
+  relationships:
+  - belongs_to: DeployApp
+- name: AppVolume
+  description: A persistent storage volume.
+  relationships:
+  - belongs_to: DeployApp
+- name: CronJob
+  description: A scheduled job for an app.
+  relationships:
+  - belongs_to: DeployApp
+  - has_many: CronJobInvocation
+- name: AppSecret
+  description: An encrypted secret / environment variable for an app.
+  relationships:
+  - belongs_to: DeployApp
+- name: AppSshServer
+  description: SSH access endpoint for an app, with users and authorized keys.
+  relationships:
+  - belongs_to: DeployApp
+  - has_many: SshUser
+- name: Namespace
+  description: An ownership/collaboration boundary owning apps, packages, and API keys.
+  relationships:
+  - has_many: DeployApp
+  - has_many: Package
+  - has_many: ApiKey
+  - has_many: Collaborator
+- name: Package
+  description: A publishable package in the registry.
+  relationships:
+  - belongs_to: Namespace
+  - has_many: PackageVersion
+- name: PackageVersion
+  description: A specific published version of a package.
+  relationships:
+  - belongs_to: Package
+- name: User
+  description: An account principal (Viewer of the API).
+  relationships:
+  - has_many: Namespace

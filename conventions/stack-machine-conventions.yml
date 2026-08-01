@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: searched
+source:
+- https://github.com/stackmachine/sdks
+- graphql/stack-machine-schema.graphql
+summary: Cross-cutting request/response semantics for the StackMachine GraphQL API,
+  derived from the published GraphQL schema and the official SDK client source.
+transport:
+  protocol: GraphQL over HTTPS
+  endpoint: https://api.stackmachine.com/graphql
+  method: POST
+  timeout_default_seconds: 80
+authentication:
+  style: api-key
+  header_env: STACKMACHINE_API_KEY
+  see: authentication/stack-machine-authentication.yml
+idempotency:
+  supported: true
+  mechanisms:
+  - name: idempotency-key
+    where: SDK request options (idempotency_key / idempotencyKey)
+    description: The client transport accepts a per-request idempotency key so retried
+      mutations are de-duplicated by the server.
+  - name: clientMutationId
+    where: Relay mutation input/payload (clientMutationId field on mutation inputs
+      and payloads across the schema)
+    description: Relay-style client mutation identifier echoed back on the payload,
+      enabling client-side correlation and safe replay of mutations.
+  retries:
+    default_max_network_retries: 1
+    force_flag: request options expose a force flag to override safe-retry behavior
+pagination:
+  style: relay-cursor-connections
+  request_params:
+  - first
+  - after
+  - last
+  - before
+  response_fields:
+  - edges
+  - node
+  - pageInfo.hasNextPage
+  - pageInfo.hasPreviousPage
+  - pageInfo.startCursor
+  - pageInfo.endCursor
+  notes: All list fields return Relay Connection types (e.g. DeployAppConnection,
+    DNSRecordConnection, CronJobConnection, AppVolumeConnection).
+object_identity:
+  style: relay-node
+  description: Objects implement the Node interface and are addressable by opaque
+    global IDs; the node(id) and nodes(ids) queries refetch any object by global ID.
+  scalars:
+  - DateTime
+  - UUID
+  - BigInt
+  - JSONString
+  - URL
+  - Upload
+  - GenericScalar
+error_envelope:
+  style: graphql-errors
+  description: Errors are returned in the standard GraphQL top-level errors[] array
+    alongside partial data; see errors/stack-machine-error-codes.yml.
+versioning:
+  style: versionless-graphql
+  description: Single unversioned GraphQL endpoint; evolution via additive schema
+    changes and @deprecated field annotations rather than URI versions.
+  see: lifecycle/stack-machine-lifecycle.yml
+rate_limit_signaling:
+  documented: false
+  notes: No rate-limit headers or quota fields were located in the schema or SDK
+    source at probe time.
+cross_links:
+  errors: errors/stack-machine-error-codes.yml
+  lifecycle: lifecycle/stack-machine-lifecycle.yml
+  authentication: authentication/stack-machine-authentication.yml
