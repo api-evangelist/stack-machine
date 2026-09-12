@@ -89,6 +89,8 @@ apis:
   - type: APIReference
     url: https://docs.stackmachine.com/
 common:
+- type: Website
+  url: https://www.stackmachine.com/
 - type: DomainSecurity
   url: security/stack-machine-domain-security.yml
 - type: DeveloperPortal
